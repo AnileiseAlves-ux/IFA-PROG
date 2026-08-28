@@ -22,4 +22,56 @@
         Utilizando linguagens de programação, o desenvolvedor traduz problemas do mundo real em códigos que 
         as máquinas conseguem compreender e processar, criando sistemas, sites e aplicativos.</p>
 </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Mídia Acessível</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+
+    <main id="conteudo-principal" tabindex="-1">
+        <header>
+            <h1>Central de Fotos e Vídeos Acessíveis</h1>
+        </header>
+
+        <!-- Seção de Fotos -->
+        <section aria-labelledby="titulo-fotos">
+            <h2 id="titulo-fotos">Galeria de Fotos</h2>
+            
+            <figure>
+                <img src="foto-palestra.jpg" alt="Palestrante no palco apontando para a tela com público assistindo atentamente">
+                <figcaption>Palestra sobre inclusão digital realizada no auditório principal.</figcaption>
+            </figure>
+        </section>
+
+        <!-- Seção de Vídeos -->
+        <section aria-labelledby="titulo-videos">
+            <h2 id="titulo-videos">Vídeo com Legendas e Transcrição</h2>
+
+            <!-- Atributos cruciais: controls (permite pausar/ajustar volume) e aria-describedby (link da transcrição) -->
+            <video controls preload="metadata" aria-describedby="transcricao-video">
+                <source src="tutorial.mp4" type="video/mp4">
+                <source src="tutorial.webm" type="video/webm">
+                
+                <!-- Arquivo de legendas para deficientes auditivos (.vtt) -->
+                <track kind="captions" src="legendas-pt.vtt" srclang="pt" label="Português" default>
+                
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+
+            <!-- Transcrição em texto para leitores de tela ou usuários surdocegos -->
+            <details id="transcricao-video">
+                <summary>Ler transcrição completa do vídeo em texto</summary>
+                <p><strong>[00:01] Apresentador:</strong> Olá! Hoje vamos aprender como navegar na web usando apenas o teclado...</p>
+                <p><strong>[00:15] Apresentador:</strong> Ao pressionar a tecla TAB, o foco visual se move entre os elementos clicáveis da página.</p>
+            </details>
+        </section>
+    </main>
+
+</body>
 </html>

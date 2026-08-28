@@ -1,0 +1,60 @@
+/* Configurações Globais de Acessibilidade */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Fontes simples são mais fáceis de ler */
+    line-height: 1.6; /* Espaçamento entre linhas melhora a leitura */
+    color: #212121; /* Texto escuro sobre fundo claro (alto contraste) */
+    background-color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Link invisível que aparece apenas quando recebe foco via tecla TAB */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000000;
+    color: #ffffff;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Destaque visual claro ao navegar por teclado (NUNCA use outline: none sem substituto) */
+a:focus, 
+button:focus, 
+input:focus {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
+
+/* Estilo para Botões e Formulários com áreas de clique grandes */
+button, input {
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin-top: 5px;
+    display: block;
+}
+
+button {
+    background-color: #005fcc;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004080;
+}
+
+/* Respeita a preferência do usuário caso ele solicite redução de movimentos no sistema */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
