@@ -1,60 +1,149 @@
-/* Configurações Globais de Acessibilidade */
+:root {
+  --azul-escuro: #003366;
+  --azul-medio: #0056b3;
+  --azul-claro: #e6f0fa;
+  --texto-escuro: #111111;
+  --texto-branco: #ffffff;
+  --foco-amarelo: #ffcc00;
+  --cinza-fundo: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, Helvetica, sans-serif; /* Fontes simples são mais fáceis de ler */
-    line-height: 1.6; /* Espaçamento entre linhas melhora a leitura */
-    color: #212121; /* Texto escuro sobre fundo claro (alto contraste) */
-    background-color: #ffffff;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--texto-escuro);
+  background-color: var(--azul-claro);
+  margin: 0;
+  padding: 20px;
+  font-size: 1.125rem;
 }
 
-/* Link invisível que aparece apenas quando recebe foco via tecla TAB */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: #000000;
-    color: #ffffff;
-    padding: 8px;
-    z-index: 100;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
-.skip-link:focus {
-    top: 0;
+.sr-only:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: auto;
+  padding: 15px;
+  background-color: var(--foco-amarelo);
+  color: #000000;
+  font-weight: bold;
+  z-index: 1000;
+  clip: auto;
+  border: 2px solid #000000;
+  border-radius: 4px;
 }
 
-/* Destaque visual claro ao navegar por teclado (NUNCA use outline: none sem substituto) */
-a:focus, 
-button:focus, 
-input:focus {
-    outline: 3px solid #005fcc;
-    outline-offset: 2px;
+a:focus-visible,
+button:focus-visible,
+video:focus-visible,
+summary:focus-visible {
+  outline: 4px solid var(--foco-amarelo);
+  outline-offset: 3px;
+  background-color: rgba(255, 204, 0, 0.2);
 }
 
-/* Estilo para Botões e Formulários com áreas de clique grandes */
-button, input {
-    font-size: 1rem;
-    padding: 10px 15px;
-    margin-top: 5px;
-    display: block;
+header {
+  background-color: var(--azul-escuro);
+  color: var(--texto-branco);
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px solid var(--azul-medio);
 }
 
-button {
-    background-color: #005fcc;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+header h1 {
+  margin: 0;
+  font-size: 2rem;
 }
 
-button:hover {
-    background-color: #004080;
+main {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Respeita a preferência do usuário caso ele solicite redução de movimentos no sistema */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation: none !important;
-        transition: none !important;
-    }
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: var(--azul-escuro);
+  border-bottom: 2px solid var(--azul-claro);
+  padding-bottom: 8px;
+  margin-top: 0;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px;
+}
+
+figcaption {
+  font-size: 0.95rem;
+  color: #333333;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  background-color: #000000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.transcricao {
+  background-color: var(--cinza-fundo);
+  border-left: 5px solid var(--azul-escuro);
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 0 4px 4px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: var(--azul-escuro);
+  padding: 5px 0;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
+
+.transcricao p {
+  margin: 10px 0 0 0;
+  font-size: 0.95rem;
 }

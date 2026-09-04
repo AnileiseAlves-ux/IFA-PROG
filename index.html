@@ -2,53 +2,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria de Mídia Acessível</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Acessível - Exemplo</title>
 </head>
 <body>
 
-    <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+  <a href="#conteudo-principal" class="sr-only">Pular para o conteúdo principal</a>
 
-    <main id="conteudo-principal" tabindex="-1">
-        <header>
-            <h1>Central de Fotos e Vídeos Acessíveis</h1>
-        </header>
+  <header role="banner">
+    <h1>Portal Acessível</h1>
+  </header>
 
-        <!-- Seção de Fotos -->
-        <section aria-labelledby="titulo-fotos">
-            <h2 id="titulo-fotos">Galeria de Fotos</h2>
-            
-            <figure>
-                <img src="foto-palestra.jpg" alt="Palestrante no palco apontando para a tela com público assistindo atentamente">
-                <figcaption>Palestra sobre inclusão digital realizada no auditório principal.</figcaption>
-            </figure>
-        </section>
+  <main id="conteudo-principal" role="main">
+    
+    <section>
+      <h2>Imagem do Dia</h2>
+      <figure>
+        <img src="foto.jpg" alt="Fotografia da maquete.">
+        <figcaption>Maquete da escola Estadual Presidente Castelo Branco.</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>Vídeo Informativo</h2>
+      <div class="video-container">
+        <video controls>
+          <source src="video.mp4" type="video/mp4">
+          <track kind="subtitles" src="legendas.vtt" srclang="pt" label="Português" default>
+          Seu navegador não suporta a tag de vídeo.
+        </video>
+      </div>
 
-        <!-- Seção de Vídeos -->
-        <section aria-labelledby="titulo-videos">
-            <h2 id="titulo-videos">Vídeo com Legendas e Transcrição</h2>
+      <details class="transcricao">
+        <summary><strong>Ler transcrição em texto do vídeo</strong></summary>
+        <p><strong>[Descrição da cena]:</strong> Um instrutor aparece na tela em um fundo azul.</p>
+        <p><strong>[Instrutor]:</strong> "Olá! Sejam bem-vindos ao nosso guia de acessibilidade digital."</p>
+        <p><strong>[Tradução/LIBRAS]:</strong> Há uma janela no canto inferior com interpretação em LIBRAS.</p>
+      </details>
+    </section>
 
-            <!-- Atributos cruciais: controls (permite pausar/ajustar volume) e aria-describedby (link da transcrição) -->
-            <video controls preload="metadata" aria-describedby="transcricao-video">
-                <source src="tutorial.mp4" type="video/mp4">
-                <source src="tutorial.webm" type="video/webm">
-                
-                <!-- Arquivo de legendas para deficientes auditivos (.vtt) -->
-                <track kind="captions" src="legendas-pt.vtt" srclang="pt" label="Português" default>
-                
-                Seu navegador não suporta a tag de vídeo.
-            </video>
-
-            <!-- Transcrição em texto para leitores de tela ou usuários surdocegos -->
-            <details id="transcricao-video">
-                <summary>Ler transcrição completa do vídeo em texto</summary>
-                <p><strong>[00:01] Apresentador:</strong> Olá! Hoje vamos aprender como navegar na web usando apenas o teclado...</p>
-                <p><strong>[00:15] Apresentador:</strong> Ao pressionar a tecla TAB, o foco visual se move entre os elementos clicáveis da página.</p>
-            </details>
-        </section>
-    </main>
+  </main>
 
 </body>
 </html>
